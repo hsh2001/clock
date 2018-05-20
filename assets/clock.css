@@ -1,0 +1,10 @@
+body {
+  font-family: 'Do Hyeon', sans-serif;
+  background: black;
+  color: white;
+}
+
+#clock {
+  font-size: 6rem;
+  text-align: center;
+}
