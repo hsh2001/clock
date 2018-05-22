@@ -1,5 +1,7 @@
+//객체 정의
 var clock = {};
 
+//clock 객체의 프로퍼티 정의
 var nameList = [
   "year", "month", "date",
   "hour", "minute", "second"
@@ -8,6 +10,7 @@ for (var i = 0; i < nameList.length; i++) {
   clock[nameList[i]] = document.getElementById(nameList[i]);
 }
 
+//시간을 업데이트할 함수를 정의
 function updateClock() {
   var d = new Date(),
       h = d.getHours(),
@@ -27,5 +30,6 @@ function updateClock() {
   clock.second.innerHTML = s;
 }
 
+//함수를 0.25초에 한번씩 호출
 updateClock();
 setInterval(updateClock, 250);
