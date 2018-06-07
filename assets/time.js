@@ -57,6 +57,7 @@ function updateStopWatch() {
 
   if (watch.innerHTML == 1) {
     watch.innerHTML = 0;
+    document.body.style.background = 'red';
     bell.play();
     return;
   }
