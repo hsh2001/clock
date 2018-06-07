@@ -1,7 +1,6 @@
-//객체 정의
-var clock = {};
+var clock = {},
+    bell = new Audio('bell.mp3');
 
-//clock 객체의 프로퍼티 정의
 var nameList = [
   "year", "month", "date",
   "hour", "minute", "second"
@@ -10,7 +9,6 @@ for (var i = 0; i < nameList.length; i++) {
   clock[nameList[i]] = document.getElementById(nameList[i]);
 }
 
-//시간을 업데이트할 함수를 정의
 function updateClock() {
   var d = new Date(),
       h = d.getHours(),
@@ -30,6 +28,40 @@ function updateClock() {
   clock.second.innerHTML = s;
 }
 
-//함수를 0.25초에 한번씩 호출
 updateClock();
 setInterval(updateClock, 250);
+
+function setStopWatch() {
+  var watch = document.getElementById('stop-watch'),
+      yn,
+      minutes;
+
+  if (!watch) return;
+
+  if (watch.innerHTML != 0) {
+    yn = confirm("타이머를 초기화하시겠습니까?");
+    if (!yn) return;
+    watch.innerHTML = 0;
+  }
+
+  minutes = +prompt("시간을 입력해주십시오. (단위는 분, 입력시에는 단위 없이 숫자만.)");
+  if (!minutes || minute < 0) return alert("유효한 양수를 입력하십시오.");
+
+  watch.innerHTML = Math.round(minutes * 60);
+}
+
+function updateStopWatch() {
+  var watch = document.getElementById('stop-watch');
+
+  if (!watch || watch.innerHTML == 0) return;
+
+  if (watch.innerHTML == 1) {
+    watch.innerHTML = 0;
+    bell.play();
+    return;
+  }
+
+  watch.innerHTML -= 1;
+}
+
+setInterval(updateStopWatch, 1000);

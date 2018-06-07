@@ -5,6 +5,41 @@ body {
 }
 
 #clock {
-  font-size: 8rem;
+  font-size: 6rem;
   text-align: center;
+}
+
+.button {
+  padding: .5rem;
+  border-radius: 5px;
+  background: white;
+  color: black !important;
+  text-decoration: none !important;
+}
+
+#reload {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
+#set-stop-watch {
+  position: fixed;
+  top: 4rem;
+  left: 1rem;
+}
+
+#stop-watch {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+}
+
+#stop-watch::before {
+  content: '타이머: '
+}
+
+#stop-watch::after {
+  content: '초'
 }
