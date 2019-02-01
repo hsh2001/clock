@@ -26,9 +26,10 @@ function updateClock() {
   clock.hour.innerHTML = h;
   clock.minute.innerHTML = m;
   clock.second.innerHTML = s;
+
+  document.getElementById('clock').style.fontSize = Math.floor(innerWidth / 7.5) + 'px';
 }
 
-updateClock();
 setInterval(updateClock, 250);
 
 function setStopWatch() {
@@ -53,7 +54,8 @@ function setStopWatch() {
 function updateStopWatch() {
   var watch = document.getElementById('stop-watch');
 
-  if (!watch || watch.innerHTML == 0) return;
+  if (!watch || watch.innerHTML == 0)
+    return;
 
   if (watch.innerHTML == 1) {
     watch.innerHTML = 0;
@@ -62,7 +64,7 @@ function updateStopWatch() {
     return;
   }
 
-  watch.innerHTML -= 1;
+  watch.innerHTML--;
 }
 
 setInterval(updateStopWatch, 1000);
