@@ -4,9 +4,19 @@ body {
   color: white;
 }
 
-#clock {
+#hms {
   font-size: 10vw;
   text-align: center;
+  color: #94e27d;
+}
+
+#ymd {
+  font-size: 4rem;
+  text-align: center;
+}
+
+#blink {
+  transition: opacity 1s;
 }
 
 .button {
